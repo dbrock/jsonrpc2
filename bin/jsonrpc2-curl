@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+exec curl "$1" -sS -H 'Content-Type: application/json' -d @-

@@ -1,0 +1,33 @@
+jsonrpc2(1) -- execute JSON-RPC 2.0 commands
+============================================
+
+## SYNOPSIS
+
+`jsonrpc2` [<user>:<pass>@]<host>[:<port>][/<path>] <command> [<args>...]
+
+## DESCRIPTION
+
+Execute a JSON-RPC 2.0 <command> and print the result to standard output.
+Trailing <args> become positional parameters (but see `LIMITATIONS` below).
+
+The first argument should be an HTTP or HTTPS URL, but the "http://" prefix
+can be dropped if the protocol is HTTP.
+
+If anything went wrong, print a diagnostic message to standard error and exit
+with a non-zero status code.  If the application returns an error, use the
+error code as the exit status.  If there is no error code, use exit status 1.
+
+## LIMITATIONS
+
+   * Passing arguments "by name" is not supported.
+   * Only strings can be passed as arguments.
+
+## SEE ALSO
+
+<http://www.jsonrpc.org/specification>
+
+jshon(1) <http://kmkeen.com/jshon/>, json(1) <http://trentm.com/json/>
+
+## BUGS
+
+Report bugs to Daniel Brockman <daniel@brockman.se\>.

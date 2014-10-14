@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -o pipefail
+get() { jshon -Q <<<"$response" $*; }
+response=`cat` && get -e result && exit
+if get -e error -e message -u | tr -d '\n'; then
+  get -e error -e code | sed 's/.*/ [error code &]/' | tr -d '\n'
+  get -e error -e data -u | sed 's/^/# /' | tr -d '\n'
+  echo && exit `get -e error -e code || echo 1`
+else
+  echo bad response: "$response" && exit -1
+fi >&2

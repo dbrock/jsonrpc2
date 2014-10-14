@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+Usage='jsonrpc2 [--help] URL COMMAND [ARGS...]'
+[[ $1 = --help ]] && exec man jsonrpc2
+[[ $1 && $2 ]] || { echo >&2 Usage: $Usage && exit -1; }
+
+set -e -o pipefail && exec 2> >(sed 's/^/jsonrpc2: /')
+jsonrpc2-request "${@:2}" | jsonrpc2-curl "$1" | jsonrpc2-client

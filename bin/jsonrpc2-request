@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+for param in "${@:2}"; do params+=(-s"$param" -iappend); done
+exec jshon <<<{} -s 2.0 -i jsonrpc -n 1 -i id \
+  -s "$1" -i method -n[] "${params[@]}" -i params

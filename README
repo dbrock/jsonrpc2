@@ -1,0 +1,14 @@
+JSON-RPC 2.0 client
+===================
+
+To use this program, you need curl(1) and jshon(1):
+
+   $ sudo apt-get -y install curl jshon
+
+Installation:
+
+   $ sudo make install
+
+Usage:
+
+   $ jsonrpc2 --help

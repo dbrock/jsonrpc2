@@ -1,0 +1,38 @@
+.\" generated with Ronn/v0.7.3
+.\" http://github.com/rtomayko/ronn/tree/0.7.3
+.
+.TH "JSONRPC2" "1" "October 2014" "" ""
+.
+.SH "NAME"
+\fBjsonrpc2\fR \- execute JSON\-RPC 2\.0 commands
+.
+.SH "SYNOPSIS"
+\fBjsonrpc2\fR [\fIuser\fR:\fIpass\fR@]\fIhost\fR[:\fIport\fR][/\fIpath\fR] \fIcommand\fR [\fIargs\fR\.\.\.]
+.
+.SH "DESCRIPTION"
+Execute a JSON\-RPC 2\.0 \fIcommand\fR and print the result to standard output\. Trailing \fIargs\fR become positional parameters (but see \fBLIMITATIONS\fR below)\.
+.
+.P
+The first argument should be an HTTP or HTTPS URL, but the "http://" prefix can be dropped if the protocol is HTTP\.
+.
+.P
+If anything went wrong, print a diagnostic message to standard error and exit with a non\-zero status code\. If the application returns an error, use the error code as the exit status\. If there is no error code, use exit status 1\.
+.
+.SH "LIMITATIONS"
+.
+.IP "\(bu" 4
+Passing arguments "by name" is not supported\.
+.
+.IP "\(bu" 4
+Only strings can be passed as arguments\.
+.
+.IP "" 0
+.
+.SH "SEE ALSO"
+\fIhttp://www\.jsonrpc\.org/specification\fR
+.
+.P
+jshon(1) \fIhttp://kmkeen\.com/jshon/\fR, json(1) \fIhttp://trentm\.com/json/\fR
+.
+.SH "BUGS"
+Report bugs to Daniel Brockman <daniel@brockman\.se>\.
